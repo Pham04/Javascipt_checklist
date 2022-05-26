@@ -1,81 +1,99 @@
-//Object prototype
-const test = Object.prototype;
-console.log(Object.prototype)
-console.log(Function.prototype)
+// //Object prototype
 
-// writable, configurable, enumarable
-"use strict"
-let user = {
-  name: 'Cuong'
-};
-// property descriptor object contain the value and all 3 flags(writable, configurable, enumarable)
-let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+// function MyObject(firstName, lastName) {
+//   this.firstName = firstName,
+//   this.lastName = lastName,
+//   this.getName = function() {
+//     return `${this.firstName} ${this.lastName}`
+//   }
+// }
 
-console.log(descriptor); 
+// MyObject.prototype.score = 10
+// var obj1 = new MyObject('Cuong', 'Pham')
+// console.log(obj1)
+// console.log(obj1.score)
 
-/* => 
-configurable: true, 
-enumerable: true, 
-writable: true, 
-value: "Cuong" */
-//-------General--------
-//update existing properties and flags (overide)
-Object.defineProperty(user, 'name', {
-  value: 'Cuong2', 
-  writable: false
-});
 
-let descriptor2 = Object.getOwnPropertyDescriptor(user, 'name');
+// const test = Object.prototype;
+// console.log(Object.prototype)
+// console.log(Function.prototype)
 
-console.log(descriptor2); 
-// create properties and flags (default set to false ) from scratch
-let user2 = {};
+// // writable, configurable, enumarable
+// "use strict"
+// let user = {
+//   name: 'Cuong'
+// };
+// // property descriptor object contain the value and all 3 flags(writable, configurable, enumarable)
+// let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 
-Object.defineProperty(user2, 'name', {
-  value: 'Cuong3'
-});
+// console.log(descriptor); 
 
-let descriptor3 = Object.getOwnPropertyDescriptor(user2, 'name');
+// /* => 
+// configurable: true, 
+// enumerable: true, 
+// writable: true, 
+// value: "Cuong" */
+// //-------General--------
+// //update existing properties and flags (overide)
+// Object.defineProperty(user, 'name', {
+//   value: 'Cuong2', 
+//   writable: false
+// });
 
-console.log(descriptor3); 
-//-------Writable--------
-let book = {};
+// let descriptor2 = Object.getOwnPropertyDescriptor(user, 'name');
 
-Object.defineProperty(book, 'name', {
-  value: 'Harry Potter 1',
-  writable: true, // default -> configurable: false, enumerable: false
-  // enumerable: true 
-});
-console.log(book.name);
-book.name = 'Edited Harry Potter 1'; // cannot re-assign non-writable properties
-console.log(book.name);
+// console.log(descriptor2); 
+// // create properties and flags (default set to false ) from scratch
+// let user2 = {};
+
+// Object.defineProperty(user2, 'name', {
+//   value: 'Cuong3'
+// });
+
+// let descriptor3 = Object.getOwnPropertyDescriptor(user2, 'name');
+
+// console.log(descriptor3); 
+// //-------Writable--------
+// let book = {};
+
+// Object.defineProperty(book, 'name', {
+//   value: 'Harry Potter 1',
+//   configurable: true, // default -> configurable: false, enumerable: false
+//   // enumerable: true 
+// });
+// console.log(book.name);
+// book.name = 'Edited Harry Potter 1'; // cannot re-assign non-writable properties
+// console.log(book.name);
 
 //-------Configurable--------
-Object.defineProperty(book, 'name', {
-  writable: true
-}) // redefined flags -> Error
-book.name = 'Edited Harry Potter 1222222'; // can change value still
-console.log(book.name);
+// Object.defineProperty(book, 'name', {
+//   writable: true
+// }) // redefined flags -> Error
+// book.name = 'Edited Harry Potter 1222222'; // can change value still
+// console.log(book.name);
 
-//-------Enumarable--------
-for (let property in book) {
-  console.log(property)
-}
+// //-------Enumarable--------
+// for (let property in book) {
+//   console.log(property)
+// }
 
-//-------Properties--------
-let course = {};
+// //-------Properties--------
+// let course = {};
 
-Object.defineProperties(course, {
-  name: {value: 'React', writable: true},
-  id: {value: 124080394, configurable:true},
-  cost: {value: 'free', enumerable: true}
-})
+// Object.defineProperties(course, {
+//   name: {value: 'React', writable: true},
+//   id: {value: 124080394, configurable:true},
+//   cost: {value: 'free', enumerable: true}
+// })
 
-let descriptorsName = Object.getOwnPropertyDescriptor(course, 'name');
-let descriptorsId = Object.getOwnPropertyDescriptor(course, 'id');
-let descriptorsCost = Object.getOwnPropertyDescriptor(course, 'cost');
+// let descriptorsName = Object.getOwnPropertyDescriptor(course, 'name');
+// let descriptorsId = Object.getOwnPropertyDescriptor(course, 'id');
+// let descriptorsCost = Object.getOwnPropertyDescriptor(course, 'cost');
 
-console.log(descriptorsName)
-console.log(descriptorsId)
-console.log(descriptorsCost)
+// console.log(descriptorsName)
+// console.log(descriptorsId)
+// console.log(descriptorsCost)
+
+
+
 
